@@ -1,9 +1,10 @@
 import type { AppProps } from 'next/app';
-import { Roboto_Mono } from 'next/font/google';
+import '@styles/global.css';
+import { montserrat } from '@fonts';
+
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<main>
-			{' '}
+		<main className={montserrat.className}>
 			<Component {...pageProps} />
 		</main>
 	);
