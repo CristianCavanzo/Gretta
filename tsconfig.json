@@ -16,7 +16,8 @@
 		"baseUrl": "./src/",
 		"paths": {
 			"@styles/*": ["public/styles/*"],
-			"@fonts": ["public/fonts/index.tsx"]
+			"@fonts": ["public/fonts/index.tsx"],
+			"@components/*": ["components/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
