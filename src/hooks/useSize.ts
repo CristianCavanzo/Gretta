@@ -1,3 +1,3 @@
-const useSize = (size: strings) => {
-	return {};
+export const useSize = (size: string, conversion: Object): number => {
+	return conversion[size];
 };

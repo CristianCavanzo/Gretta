@@ -1,17 +1,27 @@
-import React from 'react';
+import { roboto } from '@fonts';
+import { useSize } from '@hooks/useSize';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
+import { TitleProps, TitleComponentProps } from './TitleSize';
 
-interface TitleProps {
-	children: React.ReactNode;
-	sizes: '40' | '48' | '56' | '64' | '72';
-}
+const TitleComponent = styled.p<TitleComponentProps>`
+	font-size: ${(props) => `${props.size}px`};
+	font-weight: bold;
+`;
 
-interface TitleComponentProps extends Omit<TitleProps, 'children'> {}
-
-const TitleComponent = styled.p<TitleComponentProps>``;
+const sizeToPxMap = {
+	s: 32,
+	m: 40,
+	l: 48,
+} as const;
 
 const Title = ({ children, sizes }: TitleProps) => {
-	return <TitleComponent sizes={sizes}>{children}</TitleComponent>;
+	const size = useSize(sizes, sizeToPxMap);
+	return (
+		<TitleComponent className={roboto.className} size={size}>
+			{children}
+		</TitleComponent>
+	);
 };
 
 export { Title };
