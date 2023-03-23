@@ -7,6 +7,8 @@ import { TitleProps, TitleComponentProps } from './TitleSize';
 const TitleComponent = styled.p<TitleComponentProps>`
 	font-size: ${(props) => `${props.size}px`};
 	font-weight: bold;
+	text-transform: ${(props) => `${props.transform}`};
+	line-height: 0.8em;
 `;
 
 const sizeToPxMap = {
@@ -15,10 +17,10 @@ const sizeToPxMap = {
 	l: 48,
 } as const;
 
-const Title = ({ children, sizes }: TitleProps) => {
+const Title = ({ children, sizes, transform }: TitleProps) => {
 	const size = useSize(sizes, sizeToPxMap);
 	return (
-		<TitleComponent className={roboto.className} size={size}>
+		<TitleComponent transform={transform} className={roboto.className} size={size}>
 			{children}
 		</TitleComponent>
 	);

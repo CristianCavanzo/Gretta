@@ -4,9 +4,8 @@ import React, { Fragment } from 'react';
 const Home = () => {
 	return (
 		<div>
-			<Title sizes="l">
-				Hazlo mejor
-				<br /> con grettasss
+			<Title transform="uppercase" sizes="l">
+				Made better <br /> with Greta
 			</Title>
 		</div>
 	);
