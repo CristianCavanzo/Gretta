@@ -9,18 +9,19 @@ const TitleComponent = styled.p<TitleComponentProps>`
 	font-weight: bold;
 	text-transform: ${(props) => `${props.transform}`};
 	line-height: 0.8em;
+	color: ${(props) => `${props.color}`};
 `;
 
 const sizeToPxMap = {
-	s: 32,
-	m: 40,
-	l: 48,
+	s: 50,
+	m: 58,
+	l: 64,
 } as const;
 
-const Title = ({ children, sizes, transform }: TitleProps) => {
+const Title = ({ children, sizes, transform, color }: TitleProps) => {
 	const size = useSize(sizes, sizeToPxMap);
 	return (
-		<TitleComponent transform={transform} className={roboto.className} size={size}>
+		<TitleComponent color={color} transform={transform} className={roboto.className} size={size}>
 			{children}
 		</TitleComponent>
 	);

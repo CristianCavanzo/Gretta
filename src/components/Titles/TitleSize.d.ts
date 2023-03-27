@@ -5,10 +5,12 @@ type TextTransform = 'uppercase' | 'capitalize' | 'lowercase';
 export interface TitleProps {
 	children: React.ReactNode;
 	transform?: TextTransform;
+	color?: string;
 	sizes: TitleSizes;
 }
 
 export interface TitleComponentProps {
 	size: number;
 	transform: TextTransform;
+	color?: string;
 }

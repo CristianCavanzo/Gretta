@@ -19,7 +19,8 @@
 			"@fonts": ["public/fonts/index.tsx"],
 			"@components/*": ["components/*"],
 			"@hooks/*": ["hooks/*"],
-			"@types": ["types.ts"]
+			"@types": ["types.ts"],
+			"@img/*": ["public/img/*"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
