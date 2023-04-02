@@ -1,8 +1,8 @@
-import { roboto } from '@fonts';
 import { useSize } from '@hooks/useSize';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { TitleProps, TitleComponentProps } from './TitleSize';
+import { roboto } from 'pages/_app';
 
 const TitleComponent = styled.p<TitleComponentProps>`
 	font-size: ${(props) => `${props.size}px`};
@@ -21,7 +21,7 @@ const sizeToPxMap = {
 const Title = ({ children, sizes, transform, color }: TitleProps) => {
 	const size = useSize(sizes, sizeToPxMap);
 	return (
-		<TitleComponent color={color} transform={transform} className={roboto.className} size={size}>
+		<TitleComponent color={color} transform={transform} size={size} className={roboto.className}>
 			{children}
 		</TitleComponent>
 	);

@@ -3,3 +3,9 @@
 	padding: 0px;
 	box-sizing: border-box;
 }
+.text-uppercase {
+	text-transform: uppercase;
+}
+.text-bold {
+	font-weight: bold;
+}

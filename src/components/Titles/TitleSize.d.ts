@@ -1,3 +1,4 @@
+import React from 'react';
 import { Sizes } from 'types';
 
 export type TitleSizes = Exclude<Sizes, 'xs' | 'xl' | 'xxl'>;
