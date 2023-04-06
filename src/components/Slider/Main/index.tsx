@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import House from '@img/house.png';
+import { Preview } from './Preview';
 const Slider = styled.main`
 	height: 100vh;
 	background: white;
@@ -25,6 +26,15 @@ const Slider = styled.main`
 	}
 	.container {
 		z-index: 2;
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		.container_left {
+			width: 50%;
+		}
+		.container_right {
+			width: 50%;
+		}
 	}
 	.gradient {
 		z-index: 1;
@@ -47,8 +57,13 @@ const SliderMain = ({ children }) => {
 			</div>
 			<div className="gradient"></div>
 			<div className="container">
-				<div>{children}</div>
-				<div></div>
+				<div className="container_left">
+					<div>{children}</div>
+					<div></div>
+				</div>
+				<div className="container_right">
+					<Preview image={{ src: House.src, alt: 'Imagen de prueba' }} name="Prueba" />
+				</div>
 			</div>
 		</Slider>
 	);

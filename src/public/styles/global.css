@@ -9,3 +9,6 @@
 .text-bold {
 	font-weight: bold;
 }
+.border-radious-8 {
+	border-radius: 8px;
+}
