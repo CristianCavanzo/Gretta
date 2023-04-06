@@ -1,3 +1,4 @@
+import { ButtonPrincipal } from '@components/Buttons/Principal';
 import { SliderMain } from '@components/Slider/Main';
 import Text from '@components/Text';
 import { Title } from '@components/Titles';
@@ -13,6 +14,7 @@ const Home = () => {
 				<Title transform="uppercase" sizes="l" color="white">
 					Made better <br /> with Greta
 				</Title>
+				<ButtonPrincipal>Ver nuestro trabajo</ButtonPrincipal>
 			</div>
 		</SliderMain>
 	);
