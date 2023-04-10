@@ -2,7 +2,8 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import House from '@img/house.png';
-import { Preview } from './Preview';
+import { Container } from './Preview/Container';
+import { IContainerSlider } from './Preview/Container/containerSlider';
 const Slider = styled.main`
 	height: 100vh;
 	background: white;
@@ -38,12 +39,39 @@ const Slider = styled.main`
 	}
 	.gradient {
 		z-index: 1;
-		background: linear-gradient(transparent, black);
+		background: linear-gradient(
+			0deg,
+			rgba(0, 0, 0, 0.8603816526610644) 0%,
+			rgb(0 0 0 / 80%) 30%,
+			rgba(255, 255, 255, 0) 100%
+		);
 		opacity: 0.5;
 	}
 `;
 
 const SliderMain = ({ children }) => {
+	const preview: IContainerSlider[] = [
+		{
+			image: { src: House.src, alt: 'Imagen de prueba' },
+			name: 'Casa en el campo',
+			selected: true,
+		},
+		{
+			image: { src: House.src, alt: 'Imagen de prueba' },
+			name: 'Casa ',
+			selected: false,
+		},
+		{
+			image: { src: House.src, alt: 'Imagen de prueba' },
+			name: 'Casa 2',
+			selected: false,
+		},
+		{
+			image: { src: House.src, alt: 'Imagen de prueba' },
+			name: 'Casa 3',
+			selected: false,
+		},
+	];
 	return (
 		<Slider>
 			<div className="image_background">
@@ -62,7 +90,7 @@ const SliderMain = ({ children }) => {
 					<div></div>
 				</div>
 				<div className="container_right">
-					<Preview image={{ src: House.src, alt: 'Imagen de prueba' }} name="Prueba" />
+					<Container preview={preview} />
 				</div>
 			</div>
 		</Slider>
