@@ -2,8 +2,9 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import House from '@img/house.png';
-import { Container } from './Preview/Container';
+import { ContainerPreview } from './Preview/Container';
 import { IContainerSlider } from './Preview/Container/containerSlider';
+
 const Slider = styled.main`
 	height: 100vh;
 	background: white;
@@ -46,6 +47,9 @@ const Slider = styled.main`
 			rgba(255, 255, 255, 0) 100%
 		);
 		opacity: 0.5;
+	}
+	@media (max-width: 1200px) {
+		padding: 80px 2.5vw;
 	}
 `;
 
@@ -90,7 +94,7 @@ const SliderMain = ({ children }) => {
 					<div></div>
 				</div>
 				<div className="container_right">
-					<Container preview={preview} />
+					<ContainerPreview preview={preview} />
 				</div>
 			</div>
 		</Slider>

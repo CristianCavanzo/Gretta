@@ -17,6 +17,11 @@ const PreviewComponent = styled.div`
 	}
 	.image-container {
 		padding: 2px;
+		position: relative;
+		height: 80px;
+	}
+	@media (max-width: 1200px) {
+		width: 120px;
 	}
 `;
 interface IProps {
@@ -36,12 +41,11 @@ const Preview = ({ image, name, selected }: IProps) => {
 			<div className={`image-container ${selected && 'selected'}`}>
 				<Image
 					src={image.src}
-					width={120}
-					height={80}
 					alt={image.alt}
 					className="border-radious-8"
 					style={{ objectFit: 'cover' }}
 					quality="100"
+					fill
 				/>
 			</div>
 		</PreviewComponent>
