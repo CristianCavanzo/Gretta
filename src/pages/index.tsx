@@ -3,11 +3,17 @@ import { SliderMain } from '@components/Slider/Main';
 import Text from '@components/Text';
 import { Title } from '@components/Titles';
 import React from 'react';
+import styled from 'styled-components';
+const ContentSlider = styled.div`
+	display: flex;
+	row-gap: 8px;
+	flex-direction: column;
+`;
 
 const Home = () => {
 	return (
 		<SliderMain>
-			<div>
+			<ContentSlider>
 				<Text color="white" className="text-uppercase text-bold">
 					eyebrow here
 				</Text>
@@ -15,7 +21,7 @@ const Home = () => {
 					Made better <br /> with Greta
 				</Title>
 				<ButtonPrincipal>Ver nuestro trabajo</ButtonPrincipal>
-			</div>
+			</ContentSlider>
 		</SliderMain>
 	);
 };

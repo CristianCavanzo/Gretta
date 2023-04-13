@@ -31,9 +31,8 @@ const Slider = styled.main`
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		.container_left {
-			width: 50%;
-		}
+		align-items: center;
+		.container_left,
 		.container_right {
 			width: 50%;
 		}
@@ -50,6 +49,17 @@ const Slider = styled.main`
 	}
 	@media (max-width: 1200px) {
 		padding: 80px 2.5vw;
+	}
+	@media (max-width: 768px) {
+		padding: 40px 1vw;
+		.container_left {
+			display: none;
+		}
+		.container .container_right {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+		}
 	}
 `;
 

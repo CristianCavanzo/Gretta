@@ -15,6 +15,19 @@ const ContainerComponent = styled.div`
 		font-weight: bold;
 		font-size: 20px;
 	}
+	@media (max-width: 510px) {
+		.containerPreview_numbers {
+			height: 60px;
+		}
+	}
+	@media (max-width: 425px) {
+		gap: 8px;
+	}
+	@media (max-width: 370px) {
+		.containerPreview_numbers {
+			height: 40px;
+		}
+	}
 `;
 
 interface IProps {

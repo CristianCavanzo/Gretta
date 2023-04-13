@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { montserrat } from 'pages/_app';
 
 const Button = styled.button`
+	display: inline-flex;
+	max-width: fit-content;
 	background: #000;
 	padding: 12px;
 	color: #fff;

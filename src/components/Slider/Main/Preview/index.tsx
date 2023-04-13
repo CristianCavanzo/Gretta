@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 const PreviewComponent = styled.div`
 	display: inline-block;
-	max-width: 124px;
+	width: 124px;
 	text-align: center;
 	cursor: pointer;
 	p {
@@ -22,6 +22,18 @@ const PreviewComponent = styled.div`
 	}
 	@media (max-width: 1200px) {
 		width: 120px;
+	}
+	@media (max-width: 510px) {
+		width: 80px;
+		.image-container {
+			height: 60px;
+		}
+	}
+	@media (max-width: 370px) {
+		width: 60px;
+		.image-container {
+			height: 40px;
+		}
 	}
 `;
 interface IProps {
