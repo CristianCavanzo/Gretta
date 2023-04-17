@@ -21,6 +21,7 @@
 			"@hooks/*": ["hooks/*"],
 			"@types": ["types.ts"],
 			"@img/*": ["public/img/*"],
+			"@context/*": ["Context/*"],
 			"@icons/*": ["public/icons/*"]
 		}
 	},

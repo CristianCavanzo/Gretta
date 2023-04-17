@@ -1,6 +1,9 @@
 import Image from 'next/image';
-import React from 'react';
+import { Context } from '@context/index';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { IProvider } from 'types';
+
 const PreviewComponent = styled.div`
 	display: inline-block;
 	width: 124px;
@@ -37,6 +40,7 @@ const PreviewComponent = styled.div`
 	}
 `;
 interface IProps {
+	id: number;
 	image: {
 		src: string;
 		alt: string;
@@ -44,9 +48,14 @@ interface IProps {
 	name: string;
 	selected: boolean;
 }
-const Preview = ({ image, name, selected }: IProps) => {
+const Preview = ({ image, name, selected, id }: IProps) => {
+	const { setSliderId, sliderId } = useContext(Context as IProvider);
+	const changeSlide = () => {
+		setSliderId(id);
+		console.log(sliderId);
+	};
 	return (
-		<PreviewComponent>
+		<PreviewComponent onClick={changeSlide}>
 			<div>
 				<p>{name}</p>
 			</div>
