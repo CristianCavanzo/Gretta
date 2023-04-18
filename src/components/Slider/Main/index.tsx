@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import House from '@img/house.png';
 import { ContainerPreview } from './Preview/Container';
-import { IContainerSlider } from './Preview/Container/containerSlider';
+import { Context } from '@context/index';
 
 const Slider = styled.main`
 	height: 100vh;
@@ -64,33 +64,13 @@ const Slider = styled.main`
 `;
 
 const SliderMain = ({ children }) => {
-	const preview: IContainerSlider[] = [
-		{
-			image: { src: House.src, alt: 'Imagen de prueba' },
-			name: 'Casa en el campo',
-			selected: true,
-		},
-		{
-			image: { src: House.src, alt: 'Imagen de prueba' },
-			name: 'Casa ',
-			selected: false,
-		},
-		{
-			image: { src: House.src, alt: 'Imagen de prueba' },
-			name: 'Casa 2',
-			selected: false,
-		},
-		{
-			image: { src: House.src, alt: 'Imagen de prueba' },
-			name: 'Casa 3',
-			selected: false,
-		},
-	];
+	const { sliderImage, imagesSlider } = useContext(Context);
+
 	return (
 		<Slider>
 			<div className="image_background">
 				<Image
-					src={House.src}
+					src={sliderImage || House.src}
 					alt="prueba"
 					fill={true}
 					style={{ objectFit: 'cover' }}
@@ -104,7 +84,7 @@ const SliderMain = ({ children }) => {
 					<div></div>
 				</div>
 				<div className="container_right">
-					<ContainerPreview preview={preview} />
+					<ContainerPreview preview={imagesSlider} />
 				</div>
 			</div>
 		</Slider>

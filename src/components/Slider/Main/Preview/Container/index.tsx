@@ -42,7 +42,6 @@ const ContainerPreview = ({ preview }: IProps) => {
 			</div>
 			{preview.map((prop, key) => (
 				<Preview
-					id={key}
 					image={prop.image}
 					name={prop.name}
 					selected={prop.selected}
