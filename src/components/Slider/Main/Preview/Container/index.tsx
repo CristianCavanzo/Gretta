@@ -46,6 +46,7 @@ const ContainerPreview = ({ preview }: IProps) => {
 					name={prop.name}
 					selected={prop.selected}
 					key={`preview_${key}`}
+					id={prop.id}
 				/>
 			))}
 			<div className={`containerPreview_numbers ${roboto.className}`}>

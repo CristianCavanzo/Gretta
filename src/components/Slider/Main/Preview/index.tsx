@@ -22,6 +22,22 @@ const PreviewComponent = styled.div`
 		position: relative;
 		height: 80px;
 	}
+	.selected .preview_gradient-image {
+		position: absolute;
+		background: linear-gradient(
+			270deg,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(0, 0, 0, 0.8603816526610644) 100%
+		);
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: 3;
+		border-radius: 8px;
+		background-size: 300% 300%;
+		animation: gradient-animation 25s ease infinite;
+	}
 	@media (max-width: 1200px) {
 		width: 120px;
 	}
@@ -37,8 +53,20 @@ const PreviewComponent = styled.div`
 			height: 40px;
 		}
 	}
+	@keyframes gradient-animation {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
 `;
 interface IProps {
+	id: number;
 	image: {
 		src: string;
 		alt: string;
@@ -46,10 +74,14 @@ interface IProps {
 	name: string;
 	selected: boolean;
 }
-const Preview = ({ image, name, selected }: IProps) => {
-	const { setSliderImage } = useContext(Context);
+const Preview = ({ image, name, selected, id }: IProps) => {
+	const { setSliderImage, imagesSlider, setImagesSlider } = useContext(Context);
 	const changeSlide = () => {
 		setSliderImage(image.src);
+		imagesSlider.find((image) => image.selected).selected = false;
+		imagesSlider.find((image) => image.id === id).selected = true;
+
+		setImagesSlider(imagesSlider);
 	};
 	return (
 		<PreviewComponent onClick={changeSlide}>
@@ -57,6 +89,7 @@ const Preview = ({ image, name, selected }: IProps) => {
 				<p>{name}</p>
 			</div>
 			<div className={`image-container ${selected && 'selected'}`}>
+				<div className="preview_gradient-image"></div>
 				<Image
 					src={image.src}
 					alt={image.alt}
