@@ -12,10 +12,10 @@ const Slider = styled.main`
 	display: flex;
 	position: relative;
 	align-items: flex-end;
+	max-width: 100vw;
 	.image_background,
 	.gradient {
 		position: absolute;
-		width: 100vw;
 		height: 100vh;
 		left: 0;
 		right: 0;
