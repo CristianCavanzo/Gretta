@@ -1,7 +1,16 @@
-import { IContainerSlider } from '@components/Slider/Main/Preview/Container/containerSlider';
 import { Dispatch, SetStateAction } from 'react';
 
 export type Sizes = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+
+export interface IContainerSlider {
+	id: number;
+	image: {
+		src: string;
+		alt: string;
+	};
+	name: string;
+	selected: boolean;
+}
 
 export interface IProvider {
 	sliderImage: string;

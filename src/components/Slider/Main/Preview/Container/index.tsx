@@ -1,5 +1,5 @@
 import React from 'react';
-import { IContainerSlider } from './containerSlider';
+import { IContainerSlider } from 'types';
 import { Preview } from '..';
 import styled from 'styled-components';
 import { roboto } from 'pages/_app';

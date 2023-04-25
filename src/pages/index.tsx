@@ -3,6 +3,7 @@ import { SliderMain } from '@components/Slider/Main';
 import Text from '@components/Text';
 import { Title } from '@components/Titles';
 import { Experiencia } from 'layout/Experiencia';
+import { SectionHouse } from 'layout/SectionsHouse';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 const ContentSlider = styled.div`
@@ -24,7 +25,11 @@ const Home = () => {
 					<ButtonPrincipal>Ver nuestro trabajo</ButtonPrincipal>
 				</ContentSlider>
 			</SliderMain>
-			<Experiencia />
+			<Experiencia>
+				&nbsp; &nbsp; With over 20 years of architectural practise experience, we combine spatial,
+				expressive, and technical skills to deliver efficient buildings of lasting value.
+			</Experiencia>
+			<SectionHouse>Prueba</SectionHouse>
 		</Fragment>
 	);
 };
