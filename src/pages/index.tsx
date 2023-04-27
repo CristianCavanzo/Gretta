@@ -3,7 +3,7 @@ import { SliderMain } from '@components/Slider/Main';
 import Text from '@components/Text';
 import { Title } from '@components/Titles';
 import { Experiencia } from 'layout/Experiencia';
-import { SectionHouse } from 'layout/SectionsHouse';
+import { CTA } from 'layout/CTA';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 const ContentSlider = styled.div`
@@ -29,7 +29,7 @@ const Home = () => {
 				&nbsp; &nbsp; With over 20 years of architectural practise experience, we combine spatial,
 				expressive, and technical skills to deliver efficient buildings of lasting value.
 			</Experiencia>
-			<SectionHouse>Prueba</SectionHouse>
+			<CTA>Prueba</CTA>
 		</Fragment>
 	);
 };
