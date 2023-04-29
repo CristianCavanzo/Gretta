@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { Card } from './components/card';
+
 const Section = styled.section`
 	padding: 80px 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	div {
+		display: flex;
+		align-items: flex-end;
+	}
+	.cta_container--card {
+		column-gap: 12px;
+		color: #666666;
+		font-weight: bold;
+	}
+	.cta_container--card-bold {
+		color: #3d3d3d;
+	}
+	.cta_container--rigth {
+		position: relative;
+		width: 700px;
+		height: 400px;
+	}
+	.cta_container--left {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		row-gap: 20px;
+	}
 `;
 import Dinnnig from '@img/dinning.png';
-const CTA = ({ children }) => {
+import Office from '@img/office.png';
+import Lounge from '@img/lounge.png';
+import Bathrooms from '@img/bathrooms.png';
+import Image from 'next/image';
+const CTA = () => {
 	const images = [
 		{
 			image: {
@@ -17,40 +47,63 @@ const CTA = ({ children }) => {
 		},
 		{
 			image: {
-				src: Dinnnig.src,
+				src: Office.src,
 				alt: 'Office image',
 			},
-			active: true,
+			active: false,
 			text: 'Office',
 		},
 		{
 			image: {
-				src: Dinnnig.src,
+				src: Lounge.src,
 				alt: 'Lounge image',
 			},
-			active: true,
+			active: false,
 			text: 'Lounge',
 		},
 		{
 			image: {
-				src: Dinnnig.src,
+				src: Bathrooms.src,
 				alt: 'Bathrooms image',
 			},
-			active: true,
+			active: false,
 			text: 'Bathrooms',
 		},
 	];
-	const image = {
-		src: Dinnnig.src,
-		alt: 'Dinning image',
-	};
+	const [state, setState] = useState(images);
+	const activeImage = state.find((item) => item.active);
 	return (
 		<Section>
-			{images.map((itm, key) => (
-				<Card image={image} active={false} key={key}>
-					{itm.text}
-				</Card>
-			))}
+			<div className="cta_container--left">
+				{state.map((itm, key) => (
+					<Fragment key={key}>
+						<div className="cta_container--card">
+							<p className={`${itm.active && 'text-bold cta_container--card-bold'}`}>
+								{`0${key + 1} `}
+							</p>
+							<Card
+								image={itm.image}
+								active={itm.active}
+								activateCards={setState}
+								cards={state}
+								id={key}
+							>
+								{itm.text}
+							</Card>
+						</div>
+					</Fragment>
+				))}
+			</div>
+
+			<div className="cta_container--rigth">
+				<Image
+					src={activeImage.image.src}
+					alt={activeImage.image.alt}
+					style={{ objectFit: 'cover' }}
+					quality="100"
+					fill
+				/>
+			</div>
 		</Section>
 	);
 };
