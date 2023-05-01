@@ -26,7 +26,7 @@ const Button = styled.button`
 		position: absolute;
 		left: 0%;
 		right: 0;
-		top: -12px;
+		top: -11px;
 		clip-path: polygon(5% 0, 95% 0, 100% 100%, 0% 100%);
 		height: 12px;
 		content: '';

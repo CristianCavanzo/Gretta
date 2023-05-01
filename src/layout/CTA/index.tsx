@@ -28,6 +28,36 @@ const Section = styled.section`
 		flex-direction: column;
 		align-items: flex-start;
 		row-gap: 20px;
+		justify-content: center;
+	}
+	@media (max-width: 1100px) {
+		.cta_container--rigth {
+			max-width: 600px;
+			width: 50vw;
+		}
+	}
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+		row-gap: 22px;
+		justify-items: center;
+		.cta_container--rigth {
+			width: 90vw;
+		}
+		.cta_container--left {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 650px) {
+		padding: 40px 20px;
+		.cta_container--left {
+			grid-template-columns: 1fr;
+		}
+	}
+	@media (max-width: 425px) {
+		.card_container--text {
+			font-size: 24px;
+		}
 	}
 `;
 import Dinnnig from '@img/dinning.png';
@@ -99,7 +129,7 @@ const CTA = () => {
 				<Image
 					src={activeImage.image.src}
 					alt={activeImage.image.alt}
-					style={{ objectFit: 'contain' }}
+					style={{ objectFit: 'cover' }}
 					quality="100"
 					fill
 				/>

@@ -34,7 +34,10 @@ const ExperienciaComponent = styled.section`
 			padding: 40px 20px;
 		}
 		.experiencia-container_text {
-			max-width: 90%;
+			max-width: 100%;
+		}
+		.experiencia-container_text .text-40 {
+			font-size: 32px;
 		}
 	}
 `;

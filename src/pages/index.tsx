@@ -6,6 +6,7 @@ import { Experiencia } from 'layout/Experiencia';
 import { CTA } from 'layout/CTA';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
+import { Portfolio } from 'layout/Portfolio';
 const ContentSlider = styled.div`
 	display: flex;
 	row-gap: 8px;
@@ -29,7 +30,8 @@ const Home = () => {
 				&nbsp; &nbsp; With over 20 years of architectural practise experience, we combine spatial,
 				expressive, and technical skills to deliver efficient buildings of lasting value.
 			</Experiencia>
-			<CTA>Prueba</CTA>
+			<CTA />
+			<Portfolio></Portfolio>
 		</Fragment>
 	);
 };
