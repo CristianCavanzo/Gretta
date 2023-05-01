@@ -72,7 +72,6 @@ const CTA = () => {
 	];
 	const [state, setState] = useState(images);
 	const activeImage = state.find((item) => item.active);
-	console.log(activeImage);
 	return (
 		<Section>
 			<div className="cta_container--left">
@@ -100,7 +99,7 @@ const CTA = () => {
 				<Image
 					src={activeImage.image.src}
 					alt={activeImage.image.alt}
-					style={{ objectFit: 'cover' }}
+					style={{ objectFit: 'contain' }}
 					quality="100"
 					fill
 				/>
