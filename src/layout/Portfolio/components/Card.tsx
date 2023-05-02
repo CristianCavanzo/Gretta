@@ -57,7 +57,16 @@ const CardComponent = styled.div<PropsStyled>`
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
-		margin-top: 4px;
+		margin-top: 8px;
+	}
+	.card_container-rigth {
+		width: 70%;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+	@media (max-width: 940px) {
+		max-width: 500px;
 	}
 `;
 
