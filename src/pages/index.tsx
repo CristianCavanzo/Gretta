@@ -7,6 +7,7 @@ import { CTA } from 'layout/CTA';
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Portfolio } from 'layout/Portfolio';
+import { Projects } from 'layout/Projects';
 const ContentSlider = styled.div`
 	display: flex;
 	row-gap: 8px;
@@ -32,6 +33,7 @@ const Home = () => {
 			</Experiencia>
 			<CTA />
 			<Portfolio></Portfolio>
+			<Projects />
 		</Fragment>
 	);
 };
