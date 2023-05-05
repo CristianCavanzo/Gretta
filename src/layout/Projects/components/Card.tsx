@@ -41,11 +41,14 @@ interface Props {
 		src: string;
 		alt: string;
 	};
+	setIdState: React.Dispatch<React.SetStateAction<number>>;
+	id: number;
+	active: boolean;
 }
 
-const Card = ({ children, image }: Props) => {
+const Card = ({ children, image, id, setIdState, active }: Props) => {
 	return (
-		<CardComponent image={image.src}>
+		<CardComponent image={image.src} onMouseOver={() => setIdState(id)}>
 			<div className="cardComponent_container">
 				<div className="cardComponent_gradient"></div>
 				<div className="cardComponent_container--text text-bold text-uppercase">{children}</div>

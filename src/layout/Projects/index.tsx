@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Lines from '@img/lines_background.png';
 import { Card } from './components/Card';
@@ -6,13 +6,14 @@ import Project1 from '@img/projects1.png';
 import Project2 from '@img/projects2.png';
 import Project3 from '@img/projects3.png';
 
-const ProjectsComponent = styled.section`
+const ProjectsComponent = styled.section<{ columns: string }>`
 	background: #7e7f76;
 	padding: 80px 40px;
 	position: relative;
 	.projects_container {
 		display: grid;
-		grid-template-columns: 2fr 1fr 1fr;
+		grid-template-columns: ${(props) => props.columns};
+		transition: all ease-in-out 0.25s;
 	}
 	.projects_lines {
 		top: 0;
@@ -33,6 +34,7 @@ const Projects = () => {
 				alt: 'Imagen de los proyectos',
 			},
 			text: 'Giorgia Gucci',
+			active: true,
 		},
 		{
 			image: {
@@ -40,6 +42,7 @@ const Projects = () => {
 				alt: 'Imagen de los proyectos',
 			},
 			text: 'Giorgia Gucci',
+			active: false,
 		},
 		{
 			image: {
@@ -47,14 +50,40 @@ const Projects = () => {
 				alt: 'Imagen de los proyectos',
 			},
 			text: 'Giorgia Gucci',
+			active: false,
 		},
 	];
+	const [state, setState] = useState(CardInfo);
+	const [idState, setIdState] = useState(0);
+	const [columns, setColumns] = useState('2fr 1fr 1fr');
+
+	const transformColumnWidth = (newActive: number) => {
+		const columnsArray = ['1fr', '1fr', '1fr'];
+		columnsArray[newActive] = '2fr';
+		setColumns(columnsArray.join(' '));
+	};
+
+	useEffect(() => {
+		const newState = state;
+		const indexActive = newState.findIndex((card) => card.active);
+		newState[indexActive].active = false;
+		newState[idState].active = true;
+		setState(newState);
+		transformColumnWidth(idState);
+	}, [idState]);
+
 	return (
-		<ProjectsComponent>
+		<ProjectsComponent columns={columns}>
 			<div className="projects_lines"></div>
 			<div className="projects_container">
 				{CardInfo.map((card, key) => (
-					<Card image={card.image} key={`projects_${key}`}>
+					<Card
+						setIdState={setIdState}
+						id={key}
+						image={card.image}
+						key={`projects_${key}`}
+						active={card.active}
+					>
 						{card.text}
 					</Card>
 				))}
