@@ -42,7 +42,7 @@ const Portfolio = () => {
 				<Title transform="uppercase" sizes="s">
 					Our projects
 				</Title>
-				<p className="portafolio_container--text-bottom text-bold">
+				<p className="portafolio_container--text-">
 					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem corporis quia a accusantium
 				</p>
 			</div>

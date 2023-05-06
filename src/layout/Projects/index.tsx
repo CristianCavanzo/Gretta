@@ -90,7 +90,7 @@ const Projects = () => {
 	}, [idState]);
 
 	return (
-		<ProjectsComponent columns={columns}>
+		<ProjectsComponent columns={columns} id="projects">
 			<div className="projects_lines"></div>
 			<div className="projects_container">
 				{state.map((card, key) => (

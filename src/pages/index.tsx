@@ -8,6 +8,7 @@ import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { Portfolio } from 'layout/Portfolio';
 import { Projects } from 'layout/Projects';
+import { Footer } from 'layout/Footer';
 const ContentSlider = styled.div`
 	display: flex;
 	row-gap: 8px;
@@ -34,6 +35,7 @@ const Home = () => {
 			<CTA />
 			<Portfolio></Portfolio>
 			<Projects />
+			<Footer />
 		</Fragment>
 	);
 };
