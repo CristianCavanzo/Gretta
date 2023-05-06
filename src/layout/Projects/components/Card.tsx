@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
+import Arrow from '@icons/arrow.svg';
 const CardComponent = styled.div<{ image: string }>`
 	display: inline-flex;
 	width: 100%;
 	height: 700px;
-	padding: 40px 12px;
 	.cardComponent_container {
 		position: relative;
 		width: 100%;
@@ -24,7 +25,8 @@ const CardComponent = styled.div<{ image: string }>`
 		background: linear-gradient(
 			0deg,
 			rgba(0, 0, 0, 85%) 0%,
-			rgb(0 0 0 / 20%) 30%,
+			rgb(0 0 0 / 30%) 40%,
+			rgb(0 0 0 / 0%) 60%,
 			rgb(0 0 0 / 0%) 100%
 		);
 	}
@@ -32,6 +34,13 @@ const CardComponent = styled.div<{ image: string }>`
 		z-index: 1;
 		font-size: 32px;
 		color: #fff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+	.cardComponent_container--text-subtitle {
+		font-size: 16px;
 	}
 `;
 
@@ -44,14 +53,21 @@ interface Props {
 	setIdState: React.Dispatch<React.SetStateAction<number>>;
 	id: number;
 	active: boolean;
+	subtitle?: string;
 }
 
-const Card = ({ children, image, id, setIdState, active }: Props) => {
+const Card = ({ children, image, id, setIdState, active, subtitle }: Props) => {
 	return (
 		<CardComponent image={image.src} onMouseOver={() => setIdState(id)}>
 			<div className="cardComponent_container">
 				<div className="cardComponent_gradient"></div>
-				<div className="cardComponent_container--text text-bold text-uppercase">{children}</div>
+				<div className="cardComponent_container--text text-uppercase">
+					<div>
+						<p className="cardComponent_container--text-subtitle">{subtitle}</p>
+						<p className=" text-bold ">{children}</p>
+					</div>
+					{active && <Image alt="arrow" width={20} height={20} src={Arrow} />}
+				</div>
 			</div>
 		</CardComponent>
 	);

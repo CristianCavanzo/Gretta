@@ -14,6 +14,7 @@ const ProjectsComponent = styled.section<{ columns: string }>`
 		display: grid;
 		grid-template-columns: ${(props) => props.columns};
 		transition: all ease-in-out 0.25s;
+		gap: 24px;
 	}
 	.projects_lines {
 		top: 0;
@@ -22,7 +23,17 @@ const ProjectsComponent = styled.section<{ columns: string }>`
 		bottom: 0;
 		position: absolute;
 		background: url(${Lines.src});
+		background-size: cover;
 		opacity: 0.3;
+	}
+	@media (max-width: 768px) {
+		.projects_container {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	@media (max-width: 425px) {
+		padding: 40px 20px;
 	}
 `;
 
@@ -35,12 +46,14 @@ const Projects = () => {
 			},
 			text: 'Giorgia Gucci',
 			active: true,
+			subtitle: '',
 		},
 		{
 			image: {
 				src: Project2.src,
 				alt: 'Imagen de los proyectos',
 			},
+			subtitle: 'Vistas de campo',
 			text: 'Giorgia Gucci',
 			active: false,
 		},
@@ -49,18 +62,22 @@ const Projects = () => {
 				src: Project3.src,
 				alt: 'Imagen de los proyectos',
 			},
+			subtitle: 'Vistas de campo',
 			text: 'Giorgia Gucci',
 			active: false,
 		},
 	];
+
 	const [state, setState] = useState(CardInfo);
 	const [idState, setIdState] = useState(0);
 	const [columns, setColumns] = useState('2fr 1fr 1fr');
 
 	const transformColumnWidth = (newActive: number) => {
-		const columnsArray = ['1fr', '1fr', '1fr'];
-		columnsArray[newActive] = '2fr';
-		setColumns(columnsArray.join(' '));
+		if (window.innerWidth > 768) {
+			const columnsArray = ['1fr', '1fr', '1fr'];
+			columnsArray[newActive] = '2fr';
+			setColumns(columnsArray.join(' '));
+		}
 	};
 
 	useEffect(() => {
@@ -76,13 +93,14 @@ const Projects = () => {
 		<ProjectsComponent columns={columns}>
 			<div className="projects_lines"></div>
 			<div className="projects_container">
-				{CardInfo.map((card, key) => (
+				{state.map((card, key) => (
 					<Card
 						setIdState={setIdState}
 						id={key}
 						image={card.image}
 						key={`projects_${key}`}
 						active={card.active}
+						subtitle={card.subtitle}
 					>
 						{card.text}
 					</Card>
