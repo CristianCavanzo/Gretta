@@ -46,6 +46,26 @@ const FooterComponent = styled.footer`
 	.footer_bottom--center a {
 		color: #000;
 	}
+	@media (max-width: 1024px) {
+		.footer_bottom {
+			margin-top: 32px;
+			flex-direction: column;
+			align-items: center;
+			row-gap: 16px;
+		}
+	}
+	@media (max-width: 768px) {
+		.footer_top {
+			grid-template-columns: 1fr;
+			row-gap: 16px;
+		}
+	}
+	@media (max-width: 425px) {
+		padding: 40px 20px;
+		.footer_topLeft p:first-child {
+			font-size: 40px;
+		}
+	}
 `;
 
 import Facebook from '@img/Facebook.png';
