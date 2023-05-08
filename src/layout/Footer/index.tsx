@@ -3,6 +3,7 @@ import { Title } from '@components/Titles';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+
 const FooterComponent = styled.footer`
 	padding: 80px 40px;
 	.footer_top {
@@ -25,7 +26,33 @@ const FooterComponent = styled.footer`
 			row-gap: 20px;
 		}
 	}
+	.footer_bottom {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 16px;
+	}
+	.footer_bottom--center ul,
+	.footer_bottom--rigth ul,
+	.footer_bottom--rigth {
+		display: flex;
+		list-style: none;
+		align-items: center;
+		column-gap: 8px;
+	}
+	.footer_bottom--center {
+		display: flex;
+		align-items: flex-end;
+	}
+	.footer_bottom--center a {
+		color: #000;
+	}
 `;
+
+import Facebook from '@img/Facebook.png';
+import Instagram from '@img/Instagram.png';
+import LinkedIn from '@img/LinkedIn.png';
+import Twitter from '@img/Twitter.png';
+import Image from 'next/image';
 
 const Footer = () => {
 	const year = new Date().getFullYear();
@@ -76,7 +103,30 @@ const Footer = () => {
 						</li>
 					</ul>
 				</div>
-				<div className="footer_bottom--rigth"></div>
+				<div className="footer_bottom--rigth">
+					<ul>
+						<li>
+							<a href="www.facebook.com">
+								<Image src={Facebook} alt="Facebook" />
+							</a>
+						</li>
+						<li>
+							<a href="www.facebook.com">
+								<Image src={Instagram} alt="Instagram" />
+							</a>
+						</li>
+						<li>
+							<a href="www.facebook.com">
+								<Image src={LinkedIn} alt="LinkedIn" />
+							</a>
+						</li>
+						<li>
+							<a href="www.facebook.com">
+								<Image src={Twitter} alt="Twitter" />
+							</a>
+						</li>
+					</ul>
+				</div>
 			</section>
 		</FooterComponent>
 	);
