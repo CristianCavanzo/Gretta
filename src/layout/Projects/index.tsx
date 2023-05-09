@@ -87,7 +87,7 @@ const Projects = () => {
 		newState[idState].active = true;
 		setState(newState);
 		transformColumnWidth(idState);
-	}, [idState]);
+	}, [idState, state]);
 
 	return (
 		<ProjectsComponent columns={columns} id="projects">

@@ -3,11 +3,14 @@ import { Context } from '@context/index';
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 
-const PreviewComponent = styled.div`
+const PreviewComponent = styled.button`
 	display: inline-block;
 	width: 124px;
 	text-align: center;
 	cursor: pointer;
+	background: none;
+	border: none;
+	outline: none;
 	p {
 		padding-bottom: 8px;
 		color: white;

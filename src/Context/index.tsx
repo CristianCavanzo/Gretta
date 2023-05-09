@@ -6,6 +6,7 @@ export const Context = createContext<IProvider>({
 	setSliderImage: () => {},
 	imagesSlider: [
 		{
+			id: 0,
 			image: { src: '', alt: '' },
 			name: '',
 			selected: true,
