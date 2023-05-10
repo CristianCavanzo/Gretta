@@ -35,6 +35,9 @@ const Button = styled.button`
 		display: flex;
 		font-size: 20px;
 	}
+	:focus {
+		box-shadow: 0 0 7px 5px #00000096;
+	}
 `;
 
 const ButtonPrincipal = ({ children }) => {

@@ -43,7 +43,7 @@ const ExperienciaComponent = styled.section`
 `;
 const Experiencia = ({ children }) => {
 	return (
-		<ExperienciaComponent>
+		<ExperienciaComponent tabIndex={0}>
 			<div className="experiencia">
 				<Text className="text-uppercase text-bold">eyebrow here</Text>
 				<div className="experiencia-container_text">

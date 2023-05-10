@@ -105,24 +105,26 @@ const CTA = () => {
 	return (
 		<Section>
 			<div className="cta_container--left">
-				{state.map((itm, key) => (
-					<Fragment key={key}>
-						<div className="cta_container--card">
-							<p className={`${itm.active && 'text-bold cta_container--card-bold'}`}>
-								{`0${key + 1} `}
-							</p>
-							<Card
-								image={itm.image}
-								active={itm.active}
-								activateCards={setState}
-								cards={state}
-								id={key}
-							>
-								{itm.text}
-							</Card>
-						</div>
-					</Fragment>
-				))}
+				<ul>
+					{state.map((itm, key) => (
+						<Fragment key={key}>
+							<li className="cta_container--card">
+								<p className={`${itm.active && 'text-bold cta_container--card-bold'}`}>
+									{`0${key + 1} `}
+								</p>
+								<Card
+									image={itm.image}
+									active={itm.active}
+									activateCards={setState}
+									cards={state}
+									id={key}
+								>
+									{itm.text}
+								</Card>
+							</li>
+						</Fragment>
+					))}
+				</ul>
 			</div>
 
 			<div className="cta_container--rigth">

@@ -5,7 +5,7 @@ import House from '@img/house.png';
 import { ContainerPreview } from './Preview/Container';
 import { Context } from '@context/index';
 
-const Slider = styled.main`
+const Slider = styled.section`
 	height: 100vh;
 	background: white;
 	padding: 80px;

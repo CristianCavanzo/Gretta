@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Context } from '@context/index';
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { montserrat } from 'pages/_app';
 
 const PreviewComponent = styled.button`
 	display: inline-block;
@@ -34,6 +35,10 @@ const PreviewComponent = styled.button`
 		z-index: 3;
 		border-radius: 8px;
 		background-size: 300% 300%;
+	}
+	:focus .image-container {
+		outline: 2px solid #ff700a;
+		border-radius: 8px;
 	}
 	@media (max-width: 1200px) {
 		width: 120px;
@@ -82,7 +87,7 @@ const Preview = ({ image, name, selected, id }: IProps) => {
 	};
 
 	return (
-		<PreviewComponent onClick={changeSlide}>
+		<PreviewComponent onClick={changeSlide} className={montserrat.className}>
 			<div>
 				<p>{name}</p>
 			</div>
