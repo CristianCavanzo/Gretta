@@ -1,9 +1,13 @@
 import Image from 'next/image';
+import { montserrat } from 'pages/_app';
 import React from 'react';
 import styled from 'styled-components';
-const CardComponent = styled.div`
+const CardComponent = styled.button`
+	border: none;
+	background: none;
 	display: flex;
 	column-gap: 12px;
+	align-items: flex-end;
 	cursor: pointer;
 	:hover .card_container--text {
 		color: #000;
@@ -29,6 +33,11 @@ const CardComponent = styled.div`
 	}
 	.card_active--text {
 		color: #000000;
+	}
+	@media (max-width: 400px) {
+		.card_container--text {
+			font-size: 20px;
+		}
 	}
 `;
 interface IProps {
@@ -70,7 +79,7 @@ const Card = ({ children, image, active, activateCards, cards, id }: IProps) => 
 	};
 
 	return (
-		<CardComponent onClick={handleActive}>
+		<CardComponent className={montserrat.className} onClick={handleActive} tabIndex={0}>
 			<div className={`${active && 'card_active--image'} border-radious-8`}>
 				<div className={`card_container--image border-radious-8`}>
 					<Image
@@ -83,7 +92,7 @@ const Card = ({ children, image, active, activateCards, cards, id }: IProps) => 
 					/>
 				</div>
 			</div>
-			<div className={`${active && 'card_active--text'} card_container--text`}>{children}</div>
+			<p className={`${active && 'card_active--text'} card_container--text`}>{children}</p>
 		</CardComponent>
 	);
 };

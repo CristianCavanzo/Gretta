@@ -10,10 +10,18 @@ const Section = styled.section`
 		display: flex;
 		align-items: flex-end;
 	}
+	ul {
+		display: flex;
+		flex-direction: column;
+		row-gap: 12px;
+	}
 	.cta_container--card {
 		column-gap: 12px;
 		color: #666666;
 		font-weight: bold;
+		list-style: none;
+		display: flex;
+		align-items: flex-end;
 	}
 	.cta_container--card-bold {
 		color: #3d3d3d;
