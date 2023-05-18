@@ -40,12 +40,12 @@ const Button = styled.button`
 	}
 `;
 
-const ButtonPrincipal = ({ children }) => {
+const ButtonPrincipal = ({ children, ...otherProps }) => {
 	return (
 		<Fragment>
-			<Button className={`${montserrat.className}`}>
+			<Button className={`${montserrat.className}`} {...otherProps}>
 				{children}
-				<Image src={Arrow} alt="arrow icon" width={12} height={12} />
+				<Image src={Arrow} alt="arrow icon" aria-hidden={true} width={12} height={12} />
 			</Button>
 		</Fragment>
 	);

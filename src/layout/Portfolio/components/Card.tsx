@@ -86,7 +86,7 @@ const Card = ({ children, image, tags }: Props) => {
 					</div>
 				</div>
 				<div className="card_container-rigth">
-					<ButtonPrincipal>Ver proyecto</ButtonPrincipal>
+					<ButtonPrincipal aria-label="Ver proyecto zion villa">Ver proyecto</ButtonPrincipal>
 				</div>
 			</div>
 		</CardComponent>

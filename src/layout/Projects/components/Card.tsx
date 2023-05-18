@@ -2,11 +2,12 @@ import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
 import Arrow from '@icons/arrow.svg';
-const CardComponent = styled.button<{ image: string }>`
+const CardComponent = styled.div<{ image: string }>`
 	display: inline-flex;
 	width: 100%;
 	height: 700px;
 	.cardComponent_container {
+		height: 100%;
 		position: relative;
 		width: 100%;
 		background: url(${(props) => props.image});
@@ -58,7 +59,13 @@ interface Props {
 
 const Card = ({ children, image, id, setIdState, active, subtitle }: Props) => {
 	return (
-		<CardComponent image={image.src} onMouseOver={() => setIdState(id)} role="button">
+		<CardComponent
+			image={image.src}
+			onMouseOver={() => setIdState(id)}
+			onFocus={() => setIdState(id)}
+			role="button"
+			tabIndex={0}
+		>
 			<div className="cardComponent_container">
 				<div className="cardComponent_gradient"></div>
 				<div className="cardComponent_container--text text-uppercase">
